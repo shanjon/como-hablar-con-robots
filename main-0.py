@@ -12,8 +12,9 @@ client = anthropic.Anthropic()
 
 # Inicializar parámetros
 system_msg = """Respond only in Yoda-speak"""
-user_prompt = """¿Puedes ayudarme a generar un script Terraform?""" ## NORA CHANGE TO BASIC PROMPT?
+user_prompt = """¿Puedes ayudarme a generar un script Terraform?"""
 
+# Payload
 message = client.messages.create(
     model="claude-3-haiku-20240307",
     max_tokens=1000,
@@ -25,5 +26,6 @@ message = client.messages.create(
     pl_tags=['devopsdays2024']
 )
 
+# Imprimir la respuesta
 print()
 print(message.content[0].text)

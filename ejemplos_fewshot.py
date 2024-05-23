@@ -112,8 +112,7 @@ Si el problema persiste, te recomiendo contactar al administrador del servidor o
 </ejemplo>
 """
 
-# few_shot_examples.py
-
+# Función para pasarle al prompt un ejemplo relevante
 def get_example_for_task(task_type):
     if task_type == "question_answering":
         return get_question_answering_examples()

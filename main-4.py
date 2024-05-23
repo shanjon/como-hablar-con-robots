@@ -5,6 +5,12 @@ warnings.filterwarnings("ignore")
 # Importar y inicializar anthropic y promptlayer
 import anthropic
 from promptlayer import PromptLayer
+
+# Importar las funciones de clasificar_tarea y ejemplos_fewshot, y el prompt usuario
+from clasificar_tarea import classify_task, get_task_specific_prompt
+from ejemplos_fewshot import get_example_for_task
+from prompt_usuario import prompt_usuario
+
 promptlayer_client = PromptLayer()
 
 anthropic = promptlayer_client.anthropic
@@ -17,7 +23,20 @@ Eres un asistente de DevOps altamente capacitado y conocedor. Tu objetivo es ayu
 - Puedes hacerme preguntas si necesitas aclaraciones adicionales.
 - Si no está seguro de la respuesta o no tiene suficiente información para proporcionar una respuesta completa, está bien decir "No lo sé" o "No estoy completamente seguro" en lugar de adivinar o inventar información.
 """
-user_prompt = """<prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </prompt_usuario>"""
+user_prompt = prompt_usuario
+
+# Classificar la tarea basada en el prompt del usuario
+task_type = classify_task(user_prompt)
+
+# Obtener el prompt específico de la tarea
+task_specific_prompt = get_task_specific_prompt(task_type)
+
+# Obtener un ejemplo relacionado a la tarea
+task_example = get_example_for_task(task_type)
+
+# Combinar el prompt del usuario, el prompt específico de la tarea, y ejemplo relacionado
+complete_prompt = f"Clasificación de la tarea: {task_specific_prompt}\n\nEjemplo de prompt y respuesta: {task_example}\n\nUsuario: {user_prompt}"
+print(complete_prompt)
 
 # Payload
 message = client.messages.create(
@@ -26,11 +45,11 @@ message = client.messages.create(
     temperature=0.5,
     system=system_msg,
     messages=[
-        {"role": "user", "content": user_prompt}
+        {"role": "user", "content": complete_prompt}
     ],
     pl_tags=['devopsdays2024']
 )
 
 # Imprimir la respuesta
 print()
-print(message.content[0].text)
+print("Asistente:",message.content[0].text)

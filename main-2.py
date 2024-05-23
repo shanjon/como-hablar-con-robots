@@ -6,7 +6,7 @@ warnings.filterwarnings("ignore")
 import anthropic
 from promptlayer import PromptLayer
 
-# Importar funciones de clasificar_tarea
+# Importar las funciones de clasificar_tarea
 from clasificar_tarea import classify_task, get_task_specific_prompt
 
 promptlayer_client = PromptLayer()
@@ -33,6 +33,7 @@ task_specific_prompt = get_task_specific_prompt(task_type)
 complete_prompt = f"Clasificación de la tarea: {task_specific_prompt}\n\nUsuario: {user_prompt}"
 print(complete_prompt)
 
+# Payload
 message = client.messages.create(
     model="claude-3-haiku-20240307",
     max_tokens=1000,
@@ -44,5 +45,6 @@ message = client.messages.create(
     pl_tags=['devopsdays2024']
 )
 
+# Imprimir la respuesta
 print()
 print("Asistente:",message.content[0].text)
