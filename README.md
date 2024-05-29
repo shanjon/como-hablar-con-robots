@@ -22,7 +22,7 @@ PromptLayer registra tus solicitudes a los APIs de OpenAI y Anthropic, lo que te
 
 Para utilizar PromptLayer en este proyecto, hay que registarte en el sitio web y generar una clave API. Después de generar tu clave API, se puede configurarla de [la misma forma que la clave de Anthropic](https://docs.anthropic.com/es/docs/quickstart-guide#paso-3-opcional-configura-tu-clave-de-api).
 
-> **En macOS o Linux**:
+**En macOS o Linux**:
 - Abre tu terminal y escribe: nano ~/.bash_profile (o nano ~/.zshrc si estás usando una versión más reciente de macOS)
 - Agrega esta línea al archivo, reemplazando your-api-key-here con tu clave de API real: export PROMPTLAYER_API_KEY='your-api-key-here'
 - Guarda el archivo y sal del editor (presiona Ctrl+O, luego Enter, luego Ctrl+X)
