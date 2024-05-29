@@ -50,6 +50,8 @@ pl_tags=['devopsdays2024']
 ```
 
 ## ¡Comenzamos! :rocket:
+Ahora podemos comenzar a ejecutar los scripts y ver cómo la aplicación de técnicas de ingeniería mejora la calidad de los resultados. Implementaremos estas técnicas con 2 parámetros de la API de Anthropic.
+
 Los parámetros de la solicitud a la API de Anthropic que modificamos en este proyecto incluyen `system` y `messages.content`:
 - `system`: Se utiliza para establecer el mensaje del sistema que proporciona instrucciones o contexto al modelo de lenguaje. Este mensaje se procesa antes de los mensajes del usuario y ayuda a guiar el comportamiento y las respuestas del modelo.
 - `messages.content`: Aquí se coloca todo el texto que deseas que el modelo procese y responda. Además del prompt de usuario, puedes estructurar el contenido de manera que incluya la clasificación de la consulta, ejemplos relevantes o cualquier otra información que ayude al modelo a entender mejor el contexto y generar una respuesta más precisa.
@@ -73,7 +75,9 @@ Para ejecutar los scripts:
 :woman_technologist: :exclamation: **Ejecuta el script `main-0.py` con `python3 main-0.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
 
-Como se ve al ejecutar el script, la respuesta está en inglés, y el LLM no tuvo el contexto para responder adecuadamente al prompt. Sólo nos confirma que puede ayudar con el script, pero no nos da información para realizar la tarea.
+Como se ve al ejecutar el script, el LLM sólo nos confirma que, sí, está capaz de ayudar con scripts, pero no lo genera ni nos hace preguntas para recopilar los requisitos del script. Además la respuesta está en inglés. Claramente, el LLM no tuvo el contexto adecuado para para avanzar con el desarrollo del script.
+
+:point_down: Seguir al próximo script...
 
 ### main-1.py
 En `main-1.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la siguiente manera:
