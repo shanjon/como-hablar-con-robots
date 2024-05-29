@@ -49,7 +49,7 @@ anthropic = promptlayer_client.anthropic
 pl_tags=['devopsdays2024']
 ```
 
-## Parámetros a modificar
+## ¡Comenzamos! :rocket:
 Los parámetros de la solicitud a la API de Anthropic que modificamos en este proyecto incluyen `system` y `messages.content`:
 - `system`: Se utiliza para establecer el mensaje del sistema que proporciona instrucciones o contexto al modelo de lenguaje. Este mensaje se procesa antes de los mensajes del usuario y ayuda a guiar el comportamiento y las respuestas del modelo.
 - `messages.content`: Aquí se coloca todo el texto que deseas que el modelo procese y responda. Además del prompt de usuario, puedes estructurar el contenido de manera que incluya la clasificación de la consulta, ejemplos relevantes o cualquier otra información que ayude al modelo a entender mejor el contexto y generar una respuesta más precisa.
