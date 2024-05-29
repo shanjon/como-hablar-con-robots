@@ -23,18 +23,18 @@ PromptLayer registra tus solicitudes a los APIs de OpenAI y Anthropic, lo que te
 Para utilizar PromptLayer en este proyecto, hay que registarte en el sitio web y generar una clave API. Después de generar tu clave API, se puede configurarla de [la misma forma que la clave de Anthropic](https://docs.anthropic.com/es/docs/quickstart-guide#paso-3-opcional-configura-tu-clave-de-api).
 
 **En macOS o Linux**:
-- Abre tu terminal y escribe: nano ~/.bash_profile (o nano ~/.zshrc si estás usando una versión más reciente de macOS)
-- Agrega esta línea al archivo, reemplazando your-api-key-here con tu clave de API real: export PROMPTLAYER_API_KEY='your-api-key-here'
+- Abre tu terminal y escribe: `nano ~/.bash_profile` (o `nano ~/.zshrc` si estás usando una versión más reciente de macOS)
+- Agrega esta línea al archivo, reemplazando your-api-key-here con tu clave de API real: `export PROMPTLAYER_API_KEY='your-api-key-here'`
 - Guarda el archivo y sal del editor (presiona Ctrl+O, luego Enter, luego Ctrl+X)
-- Carga el perfil actualizado ejecutando: source ~/.bash_profile (o source ~/.zshrc)
+- Carga el perfil actualizado ejecutando: `source ~/.bash_profile` (o `source ~/.zshrc`)
 
 **En Windows**:
-- Abre el símbolo del sistema y escribe: setx PROMPTLAYER_API_KEY= "your-api-key-here", reemplazando your-api-key-here con tu clave de API real
+- Abre el símbolo del sistema y escribe: `setx PROMPTLAYER_API_KEY= "your-api-key-here"`, reemplazando your-api-key-here con tu clave de API real
 - Para hacer este cambio permanente, sigue estos pasos:
 - Haz clic derecho en ‘Este equipo’ o ‘Mi PC’ y selecciona ‘Propiedades’
 - Haz clic en ‘Configuración avanzada del sistema’
 - Haz clic en el botón ‘Variables de entorno’
-- En la sección ‘Variables del sistema’, haz clic en ‘Nuevo…’ e ingresa PROMPTLAYER_API_KEY= como el nombre de la variable y tu clave de API como el valor de la variable
+- En la sección ‘Variables del sistema’, haz clic en ‘Nuevo…’ e ingresa `PROMPTLAYER_API_KEY=` como el nombre de la variable y tu clave de API como el valor de la variable
 
 > [!CAUTION]
 > Si NO deseas utilizar PromptLayer, borra las siguientes líneas de los archivos `main-0.py`, `main-1.py`, `main-2.py`, `main-3.py`, `main-4.py`:
@@ -65,7 +65,7 @@ Si estás utilizando PromptLayer, también se puede modificar el valor de la eti
 Para ejecutar los scripts:
 1. Abre el proyecto en tu IDE
 2. Asegúrate de estar en el directorio del proyecto `como-hablar-con-robots` o muévete a ese directorio ejecutando el comando `cd como-hablar-con-robots`
-3. Ejecuta el script con el comando `python3 main-X.py` o ejecutando el depurador de Python en tu IDE - *reemplaza `x` con el número del script que desea ejecutar*
+3. Ejecuta el script con el comando `python3 main-X.py` o ejecutando el debugger de Python en tu IDE - *reemplaza `x` con el número del script que desea ejecutar*
 
 ### main-0.py
 `main-0.py` es el primer prompt que enviamos a la API de Anthropic. Se incluye el payload por defecto de [la guía de inicio rápido de Anthropic](https://docs.anthropic.com/es/docs/quickstart-guide#paso-4-envia-tu-primera-solicitud-de-api). El único cambio que se ha hecho al payload por defecto es cambiar el valor del parámetro `user_prompt` de "How are you today?" a "¿Puedes ayudarme a generar un script Terraform?".
