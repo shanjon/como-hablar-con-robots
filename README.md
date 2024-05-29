@@ -1,4 +1,4 @@
-# Cómo hablar con robots
+# Cómo hablar con robots :robot:
 
 Este repo contiene un proyecto utilizado para demostrar técnicas y mejores prácticas para la ingeniería de prompts durante la conferencia [DevOpsDays Medellín 2024](https://devopsdays.io/) :colombia:
 
@@ -6,7 +6,7 @@ El proyecto es un sencillo chatbot de DevOps que ayuda a los profesionales de De
 
 El proyecto se compone de una serie de 5 prompts, cada uno mejorando incrementalmente al anterior mediante la incorporación de técnicas de ingeniería de prompts discutidas durante la charla. Además de los 5 prompts, hay tres archivos `utils` que contienen funciones auxiliares para clasificar tareas (`clasificar_tarea.py`), proporcionar un ejemplo relevante de acuerdo con el prompt del usuario (`ejemplos_oneshot.py`), y un prompt de usuario bien definido (`prompt_usuario.py`).
 
-## Prerrequisitos
+## Prerrequisitos :page_facing_up:
 
 Para ejecutar los prompts, se requieren:
 - Python 3.7.1
