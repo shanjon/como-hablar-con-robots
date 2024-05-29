@@ -1,6 +1,6 @@
 # Cómo hablar con robots
 
-Este repo contiene un proyecto utilizado para demostrar técnicas y mejores prácticas para la ingeniería de prompts durante la conferencia [DevOpsDays Medellín 2024](https://devopsdays.io/).
+Este repo contiene un proyecto utilizado para demostrar técnicas y mejores prácticas para la ingeniería de prompts durante la conferencia [DevOpsDays Medellín 2024](https://devopsdays.io/) :colombia:
 
 El proyecto es un sencillo chatbot de DevOps que ayuda a los profesionales de DevOps con tareas comunes, como la generación de scripts, el diagnóstico de errores y la respuesta a preguntas relacionadas con DevOps.
 
@@ -71,6 +71,7 @@ Para ejecutar los scripts:
 `main-0.py` es el primer prompt que enviamos a la API de Anthropic. Se incluye el payload por defecto de [la guía de inicio rápido de Anthropic](https://docs.anthropic.com/es/docs/quickstart-guide#paso-4-envia-tu-primera-solicitud-de-api). El único cambio que se ha hecho al payload por defecto es cambiar el valor del parámetro `user_prompt` de "How are you today?" a "¿Puedes ayudarme a generar un script Terraform?".
 
 :woman_technologist: :exclamation: **Ejecuta el script `main-0.py` con `python3 main-0.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+
 
 Como se ve al ejecutar el script, la respuesta está en inglés, y el LLM no tuvo el contexto para responder adecuadamente al prompt. Sólo nos confirma que puede ayudar con el script, pero no nos da información para realizar la tarea.
 
