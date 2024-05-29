@@ -12,7 +12,7 @@ client = anthropic.Anthropic()
 
 # Inicializar parámetros
 system_msg = """Respond only in Yoda-speak"""
-user_prompt = """Me puedes generar un script de Terraform"""
+user_prompt = """¿Puedes ayudarme a generar un script Terraform?"""
 
 # Payload
 message = client.messages.create(

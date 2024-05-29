@@ -7,7 +7,7 @@ import anthropic
 from promptlayer import PromptLayer
 
 # Importar las funciones de clasificar_tarea
-from clasificar_tarea import classify_task, get_task_specific_prompt
+from utils.clasificar_tarea import classify_task, get_task_specific_prompt
 
 promptlayer_client = PromptLayer()
 

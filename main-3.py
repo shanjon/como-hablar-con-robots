@@ -7,8 +7,8 @@ import anthropic
 from promptlayer import PromptLayer
 
 # Importar las funciones de clasificar_tarea y ejemplos_fewshot
-from clasificar_tarea import classify_task, get_task_specific_prompt
-from ejemplos_fewshot import get_example_for_task
+from utils.clasificar_tarea import classify_task, get_task_specific_prompt
+from utils.ejemplos_oneshot import get_example_for_task
 
 promptlayer_client = PromptLayer()
 
