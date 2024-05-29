@@ -11,10 +11,10 @@ The project is made up of a series of 5 prompts, each an incremental improvement
 In order to execute the prompts, you will need to have:
 - Python 3.7.1
 - Anthropic API key
-- PromptLayer, a free (for individuals) platform to track, manage, and share your prompt engineering (optional - see instructions below for using/removing)
+- PromptLayer API key - *PromptLayer is a free (for individuals) platform to track, manage, and share your prompt engineering (optional - see instructions below for using/removing)*
 
 #### PythonV3
-Before you begin, you must have Python3 (>= 3.7.1) installed on your computer. Open your terminal (on macOS) or command prompt (on Windows) and type:
+Before you begin, you must have Python3 (>= `3.7.1`) installed on your computer. Open your terminal (on macOS) or command prompt (on Windows) and type:
 ```
 python --version
 ```
