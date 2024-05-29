@@ -13,10 +13,10 @@ Para ejecutar los prompts, se requieren:
 - Una clave API de Anthropic
 - Una clave API de PromptLayer - *PromptLayer es una plataforma gratuita (para individuos) para rastrear, administrar y compartir la ingeniería de prompts (opcional - consulta las instrucciones a continuación para usar/eliminar)*
 
-#### Python 3 and Anthropic API key
+### Python 3 and Anthropic API key
 La guía de inicio rápido publicado por Anthropic indica los pasos necesarios para instalar Python 3 y configurar tu entorno con una clave API de Anthropic. Se puede generar una clave gratis - y recibir $5 en créditos (más que suficiente para este proyecto) - al seguir las instrucciones en español aqui: https://docs.anthropic.com/es/docs/getting-access-to-claude
 
-#### PromptLayer
+### PromptLayer
 
 PromptLayer registra tus solicitudes a los APIs de OpenAI y Anthropic, lo que te permite buscar y explorar el historial de solicitudes en el tablero de PromptLayer.
 
