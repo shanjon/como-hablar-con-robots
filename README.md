@@ -24,7 +24,7 @@ Para utilizar PromptLayer en este proyecto, hay que registarte en el sitio web y
 
 **En macOS o Linux**:
 - Abre tu terminal y escribe: `nano ~/.bash_profile` (o `nano ~/.zshrc` si estás usando una versión más reciente de macOS)
-- Agrega esta línea al archivo, reemplazando your-api-key-here con tu clave de API real: `export PROMPTLAYER_API_KEY='your-api-key-here'`
+- Agrega esta línea al archivo, reemplazando `your-api-key-here` con tu clave de API: `export PROMPTLAYER_API_KEY='your-api-key-here'`
 - Guarda el archivo y sal del editor (presiona Ctrl+O, luego Enter, luego Ctrl+X)
 - Carga el perfil actualizado ejecutando: `source ~/.bash_profile` (o `source ~/.zshrc`)
 
@@ -52,7 +52,7 @@ pl_tags=['devopsdays2024']
 ## ¡Comenzamos! :rocket:
 Ahora podemos comenzar a ejecutar los scripts y ver cómo la aplicación de técnicas de ingeniería mejora la calidad de los resultados. Implementaremos estas técnicas con 2 parámetros de la API de Anthropic.
 
-Los parámetros de la solicitud a la API de Anthropic que modificamos en este proyecto incluyen `system` y `messages.content`:
+Los parámetros son `system` y `messages.content`:
 - `system`: Se utiliza para establecer el mensaje del sistema que proporciona instrucciones o contexto al modelo de lenguaje. Este mensaje se procesa antes de los mensajes del usuario y ayuda a guiar el comportamiento y las respuestas del modelo.
 - `messages.content`: Aquí se coloca todo el texto que deseas que el modelo procese y responda. Además del prompt de usuario, puedes estructurar el contenido de manera que incluya la clasificación de la consulta, ejemplos relevantes o cualquier otra información que ayude al modelo a entender mejor el contexto y generar una respuesta más precisa.
 
@@ -67,10 +67,11 @@ Si estás utilizando PromptLayer, también se puede modificar el valor de la eti
 Para ejecutar los scripts:
 1. Abre el proyecto en tu IDE
 2. Asegúrate de estar en el directorio del proyecto `como-hablar-con-robots` o muévete a ese directorio ejecutando el comando `cd como-hablar-con-robots`
-3. Ejecuta el script con el comando `python3 main-X.py` o ejecutando el debugger de Python en tu IDE - *reemplaza `x` con el número del script que desea ejecutar*
+3. Ejecuta el script con el comando `python3 main-X.py` o ejecutando el debugger de Python en tu IDE - *reemplaza `X` con el número del script que desea ejecutar*
 
 ### main-0.py
 `main-0.py` es el primer prompt que enviamos a la API de Anthropic. Se incluye el payload por defecto de [la guía de inicio rápido de Anthropic](https://docs.anthropic.com/es/docs/quickstart-guide#paso-4-envia-tu-primera-solicitud-de-api). El único cambio que se ha hecho al payload por defecto es cambiar el valor del parámetro `user_prompt` de "How are you today?" a "¿Puedes ayudarme a generar un script Terraform?".
+
 
 :woman_technologist: :exclamation: **Ejecuta el script `main-0.py` con `python3 main-0.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
