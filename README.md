@@ -92,7 +92,7 @@ Al ejecutar el script, ya se nota mejoras en la respuesta. Esta vez, confirma (e
 Sin embargo, me gustaría que ayudamos a Claude a entender y realizar la tarea, ya que debe estar capaz de generar scripts, diagnosticar errores/problemas, y responder a preguntas relacionadas con DevOps.
 
 ### main-2.py
-Esta vez, implementamos un poco de lógica en el script para clasificar la tarea indicada por el usuario. Agregamos un helper function ([`clasificar_tarea.py`](utils/clasificar_tarea.py])) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
+Esta vez, implementamos un poco de lógica en el script para clasificar la tarea indicada por el usuario. Agregamos un helper function ([`clasificar_tarea.py`](/utils/clasificar_tarea.py])) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
 
 En `main-2.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la siguiente manera:
 - `system_msg`
