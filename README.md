@@ -92,14 +92,34 @@ Al ejecutar el script, ya se nota mejoras en la respuesta. Esta vez, confirma (e
 Sin embargo, me gustaría que ayudamos a Claude a entender y realizar la tarea, ya que debe estar capaz de generar scripts, diagnosticar errores/problemas, y responder a preguntas relacionadas con DevOps.
 
 ### main-2.py
-Esta vez, implementamos un poco de lógica en el script para clasificar la tarea indicada por el usuario. Agregamos un helper function ([`clasificar_tarea.py`](/utils/clasificar_tarea.py)) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
+Esta vez, implementamos un poco de lógica en el script para clasificar la tarea solicitada por el usuario. Agregamos un helper function ([`clasificar_tarea.py`](/utils/clasificar_tarea.py)) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
 
-En `main-2.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la siguiente manera:
-- `system_msg`
-    - Aprovechar de la técnica "Juego de papel" al indicar al LLM *"Eres un asistente de DevOps..."*
-    - Dejar el prompt de sistema más claro al incluir la audiencia prevista, el objetivo, y el estilo/tono de las respuestas deseadas
-    - Darle al LLM tiempo a pensar y la opción de decir “no lo sé”
-- `user_prompt`
-    - Estructuar el prompt del usuario al ponerlo en etiquetas XML
+En `main-2.py`, juntamos la clasifiación de la tarea con el prompt del usuario, ambos estructurados en etiquetas XML, y se los pasamos al payload en la variable `complete_prompt`. Ahora, el modelo va a recibir la siguiente información:
 
-    Juntar user_prompt con 
+```
+Clasificación de la tarea: <clasifiación> Solicitud de generación de script </clasifiación>
+
+Usuario: <prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </prompt_usuario>
+```
+
+:woman_technologist: :exclamation: **Ejecuta el script `main-2.py` con `python3 main-2.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+
+Con la clasificación de tareas, estamos haciendo que nuestra arquitectura rápida sea más modular, de modo que podamos beneficiarnos de la reutilización, la mantenibilidad, la extensibilidad y la personalización...
+
+### main-3.py
+Ahora, implementamos la técnica "One-shot prompting" a nuestro chatbot. Depués de clasificar la tarea indicado por el prompt del usuario, pasamos un ejemplo relevante de una consulta parecida y una respuesta adecuada. Los ejemplos aclaran el nivel de detalle y también que queremos que la repuesta sea estructurada en subtareas, paso-por-paso. Al incluir un ejemplo relevante, se aumenta la probabilidad de que Claude genere una respuesta que cumpla con nuestras expectativas.
+
+El helper function ([`ejemplos_oneshot.py`](/utils/ejemplos_oneshot.py)) incluye un ejemplo de cada tipo de tarea que el modelo tendrá que manejar ("Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores"). Depués de clasificar la tarea, el script agrega el ejemplo correspondiente a la clasificación, y pasa todo junto con el prompt de usuario en `complete_prompt`:
+
+```
+Clasificación de la tarea: <clasifiación> Solicitud de generación de script </clasifiación>
+
+Ejemplo de prompt y respuesta: 
+<ejemplo>
+...
+
+</ejemplo>
+
+Usuario: <prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </prompt_usuario>
+
+```
