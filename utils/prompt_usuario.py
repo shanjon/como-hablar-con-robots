@@ -1,6 +1,6 @@
 prompt_usuario = """
 <prompt_usuario>
-    <task>Genera un script de Terraform que cree los siguientes recursos en AWS:</task>
+    <task>Puedes ayudarme a generar un script de Terraform que cree los siguientes recursos en AWS:</task>
         <resources>
             <ec2>
                 <name>mi-instancia-web</name>
