@@ -87,9 +87,9 @@ En `main-1.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la 
 
 :woman_technologist: :exclamation: **Ejecuta el script `main-1.py` con `python3 main-1.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
-Al ejecutar el script, ya se nota mejoras en la respuesta. Esta vez, confirma (en español) que, sí, está capaz de ayudar con la generación de un script de Terraform, incluye detalles de Terraform para demostrar su familiaridad con la tecnologia, y nos hace preguntas para poder completar la tarea.
+Al ejecutar el script, ya se nota mejoras en la respuesta. Esta vez, confirma (en español) que, sí, está capaz de ayudar con la generación de un script de Terraform, incluye detalles de Terraform para demostrar su familiaridad con la tecnologia, y nos hace preguntas para poder completar la tarea...
 
-Sin embargo, me gustaría que ayudamos a Claude a entender y realizar la tarea, ya que debe estar capaz de generar scripts, diagnosticar errores/problemas, y responder a preguntas relacionadas con DevOps.
+Sin embargo, debemos ayudamos a Claude a entender y realizar la tarea, ya que debe estar capaz de generar scripts, diagnosticar errores/problemas, y responder a preguntas relacionadas con DevOps.
 
 ### main-2.py
 Esta vez, implementamos un poco de lógica en el script para clasificar la tarea solicitada por el usuario. Agregamos un helper function ([`clasificar_tarea.py`](/utils/clasificar_tarea.py)) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
@@ -124,7 +124,7 @@ Usuario: <prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </pro
 
 ```
 
-:woman_technologist: :exclamation: **Ejecuta el script `main-2.py` con `python3 main-2.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+:woman_technologist: :exclamation: **Ejecuta el script `main-3.py` con `python3 main-3.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
 Ahora se nota que la respuesta ha mejorado bastante desde `main-0.py`. Sin embargo, nuestro prompt de usuario es demasiado vago! Vamos a aplicar nuestras técnicas de la ingeniería de prompt...
 
@@ -133,7 +133,7 @@ En [`prompt_usuario.py`](/utils/prompt_usuario.py), hay un prompt de usuario que
 
 Junto con el juego de papel, claridad, estructura, one-shot prompting, y otras mejores práticas que hemos implementado, deberíamos poder generar una respuesta bien refinada...
 
-:woman_technologist: :exclamation: **Ejecuta el script `main-2.py` con `python3 main-2.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+:woman_technologist: :exclamation: **Ejecuta el script `main-4.py` con `python3 main-4.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
 Esta vez, vemos que el modelo nos proporciona un script funcional, repleto de las configuraciones indicadas por el prompt del usuario, y explicado en detalle, paso-por-paso. Hasta indica pasos de troubleshooting!
 
@@ -141,6 +141,6 @@ Esta vez, vemos que el modelo nos proporciona un script funcional, repleto de la
 > **Cambia el mensaje del usuario a otra tarea y vea cómo responde el modelo!**
 
 
-## Comentarios
-> [!WARNING]
-> **Es posible que tengas que incrementar el parámetro `max_tokens` para generar la respuesta completa de Anthropic.**
+## Comentarios finales
+Gracias por leer y probar este repo. Espero que te haya ayudado. Si tienes algún pregunta o duda relacionada al proyecto, no dudas [reportar un Issue](https://github.com/shanjon/como-hablar-con-robots/issues).
+> Es posible que tengas que incrementar el parámetro `max_tokens` para generar la respuesta completa de Anthropic.
