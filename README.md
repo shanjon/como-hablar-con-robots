@@ -10,7 +10,7 @@ El proyecto se compone de una serie de 5 prompts, cada uno mejorando incremental
 
 Para ejecutar los prompts, se requieren:
 - Python 3.7.1
-- Una clave API de Anthropic
+- Una clave API de Anthropic (Claude)
 - Una clave API de PromptLayer - *PromptLayer es una plataforma gratuita (para individuos) para rastrear, administrar y compartir la ingeniería de prompts (opcional - consulta las instrucciones a continuación para usar/eliminar)*
 
 ### Python 3 and Anthropic API key
@@ -87,9 +87,19 @@ En `main-1.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la 
 
 :woman_technologist: :exclamation: **Ejecuta el script `main-1.py` con `python3 main-1.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
-Al ejecutar el script, ya se nota mejorias en la respuesta. Esta vez, confirma que, sí, puede ayudar con la generación de un script de Terraform, incluye detalles de Terraform para demostrar su familiaridad con la tecnologia, y me hace preguntas para poder completar la tarea.
+Al ejecutar el script, ya se nota mejoras en la respuesta. Esta vez, confirma (en español) que, sí, está capaz de ayudar con la generación de un script de Terraform, incluye detalles de Terraform para demostrar su familiaridad con la tecnologia, y nos hace preguntas para poder completar la tarea.
 
-Sin embargo, me gustaría que ayudamos a Claude a entender la tarea en si, ya que se puede recibir varios tipos de tareas...
+Sin embargo, me gustaría que ayudamos a Claude a entender y realizar la tarea, ya que debe estar capaz de generar scripts, diagnosticar errores/problemas, y responder a preguntas relacionadas con DevOps.
 
 ### main-2.py
-En `main-2.py`, actualizamos...
+Esta vez, implementamos un poco de lógica en el script para clasificar la tarea indicada por el usuario. Agregamos un helper function ((`clasificar_tarea.py`)[utils/clasificar_tarea.py]) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
+
+En `main-2.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la siguiente manera:
+- `system_msg`
+    - Aprovechar de la técnica "Juego de papel" al indicar al LLM *"Eres un asistente de DevOps..."*
+    - Dejar el prompt de sistema más claro al incluir la audiencia prevista, el objetivo, y el estilo/tono de las respuestas deseadas
+    - Darle al LLM tiempo a pensar y la opción de decir “no lo sé”
+- `user_prompt`
+    - Estructuar el prompt del usuario al ponerlo en etiquetas XML
+
+    Juntar user_prompt con 
