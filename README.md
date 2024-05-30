@@ -63,7 +63,7 @@ Si lo deseas, también puedes cambiar los parámetros `model`, `temperature` y `
 
 Si estás utilizando PromptLayer, también se puede modificar el valor de la etiqueta `pl_tags` a cualquier valor que deseas.
 
-## Ejecutar los scripts
+## Ejecutar los scripts :keyboard:
 Para ejecutar los scripts:
 1. Abre el proyecto en tu IDE
 2. Asegúrate de estar en el directorio del proyecto `como-hablar-con-robots` o muévete a ese directorio ejecutando el comando `cd como-hablar-con-robots`
@@ -135,10 +135,12 @@ Junto con el juego de papel, claridad, estructura, one-shot prompting, y otras m
 
 :woman_technologist: :exclamation: **Ejecuta el script `main-2.py` con `python3 main-2.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
-Esta vez, vemos que el modelo nos que proporcionado un script de verdad, repleto de las configuraciones indicadas por el prompt del usuario, y explicado en detalle, paso-por-paso. Hasta indica pasos de troubleshooting!
+Esta vez, vemos que el modelo nos proporciona un script funcional, repleto de las configuraciones indicadas por el prompt del usuario, y explicado en detalle, paso-por-paso. Hasta indica pasos de troubleshooting!
 
 > [!TIP]
 > **Cambia el mensaje del usuario a otra tarea y vea cómo responde el modelo!**
 
+
+## Comentarios
 > [!WARNING]
 > **Es posible que tengas que incrementar el parámetro `max_tokens` para generar la respuesta completa de Anthropic.**
