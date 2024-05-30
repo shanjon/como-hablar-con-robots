@@ -72,20 +72,28 @@ Para ejecutar los scripts:
 ### main-0.py
 `main-0.py` es el primer prompt que enviamos a la API de Anthropic. Se incluye el payload por defecto de [la guía de inicio rápido de Anthropic](https://docs.anthropic.com/es/docs/quickstart-guide#paso-4-envia-tu-primera-solicitud-de-api). El único cambio que se ha hecho al payload por defecto es cambiar el valor del parámetro `user_prompt` de "How are you today?" a "¿Puedes ayudarme a generar un script Terraform?".
 
-
 :woman_technologist: :exclamation: **Ejecuta el script `main-0.py` con `python3 main-0.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
+Al ejecutar el script, se nota que el LLM apenas nos confirma que, sí, está capaz de ayudar con scripts, pero no lo genera ni nos hace preguntas para recopilar los requisitos del script. Además la respuesta está en inglés. Claramente, el LLM no tuvo el contexto adecuado para para avanzar con el desarrollo del script.
 
-Como se ve al ejecutar el script, el LLM sólo nos confirma que, sí, está capaz de ayudar con scripts, pero no lo genera ni nos hace preguntas para recopilar los requisitos del script. Además la respuesta está en inglés. Claramente, el LLM no tuvo el contexto adecuado para para avanzar con el desarrollo del script.
-
-:point_down: Seguir al próximo script...
+:point_down: **Seguir al próximo script...**
 
 ### main-1.py
 En `main-1.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la siguiente manera:
 - `system_msg`
-    - Juego de papel
-    - Clara
-    - Tiempo a pensar y la opción de decir “no lo sé”
+    - Aprovechar de la técnica "Juego de papel" al indicar al LLM *"Eres un asistente de DevOps..."*
+    - Dejar el prompt de sistema más claro al incluir la audiencia prevista, el objetivo, y el estilo/tono de las respuestas deseadas
+    - Darle al LLM tiempo a pensar y la opción de decir “no lo sé”
 - `user_prompt`
-    - Estructurado - XML tags
+    - Estructuar el prompt del usuario al ponerlo en etiquetas XML
 
+:woman_technologist: :exclamation: **Ejecuta el script `main-1.py` con `python3 main-1.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+
+Al ejecutar el script, ya se nota mejorias en la respuesta. Esta vez, confirma que, sí, puede ayudar con la generación de un script de Terraform, incluye detalles de Terraform para demostrar su familiaridad con la tecnologia, y me hace preguntas para poder completar la tarea.
+
+Sin embargo, me gustaría que ayudamos a Claude a entender la tarea en si, ya que se puede recibir varios tipos de tareas.
+
+:point_down: **Seguir al próximo script...**
+
+### main-2.py
+En `main-2.py`, actualizamos...
