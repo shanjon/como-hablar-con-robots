@@ -74,9 +74,7 @@ Para ejecutar los scripts:
 
 :woman_technologist: :exclamation: **Ejecuta el script `main-0.py` con `python3 main-0.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
-Al ejecutar el script, se nota que el LLM apenas nos confirma que, sí, está capaz de ayudar con scripts, pero no lo genera ni nos hace preguntas para recopilar los requisitos del script. Además la respuesta está en inglés. Claramente, el LLM no tuvo el contexto adecuado para para avanzar con el desarrollo del script.
-
-:point_down: **Seguir al próximo script...**
+Al ejecutar el script, se nota que el LLM apenas nos confirma que, sí, está capaz de ayudar con scripts, pero no lo genera ni nos hace preguntas para recopilar los requisitos del script. Además la respuesta está en inglés. Claramente, el LLM no tuvo el contexto adecuado para para avanzar con el desarrollo del script. Avanzamos...
 
 ### main-1.py
 En `main-1.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la siguiente manera:
@@ -91,9 +89,7 @@ En `main-1.py`, actualizamos los parámetros `system_msg` y `user_prompt` de la 
 
 Al ejecutar el script, ya se nota mejorias en la respuesta. Esta vez, confirma que, sí, puede ayudar con la generación de un script de Terraform, incluye detalles de Terraform para demostrar su familiaridad con la tecnologia, y me hace preguntas para poder completar la tarea.
 
-Sin embargo, me gustaría que ayudamos a Claude a entender la tarea en si, ya que se puede recibir varios tipos de tareas.
-
-:point_down: **Seguir al próximo script...**
+Sin embargo, me gustaría que ayudamos a Claude a entender la tarea en si, ya que se puede recibir varios tipos de tareas...
 
 ### main-2.py
 En `main-2.py`, actualizamos...
