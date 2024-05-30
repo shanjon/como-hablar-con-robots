@@ -94,10 +94,10 @@ Sin embargo, me gustaría que ayudamos a Claude a entender y realizar la tarea, 
 ### main-2.py
 Esta vez, implementamos un poco de lógica en el script para clasificar la tarea solicitada por el usuario. Agregamos un helper function ([`clasificar_tarea.py`](/utils/clasificar_tarea.py)) para evaluar el prompt del usuario y clasificarla como "Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores", y después pasar todo junto al modelo.
 
-En `main-2.py`, juntamos la clasifiación de la tarea con el prompt del usuario, ambos estructurados en etiquetas XML, y se los pasamos al payload en la variable `complete_prompt`. Ahora, el modelo va a recibir la siguiente información:
+En `main-2.py`, juntamos la clasificación de la tarea con el prompt del usuario, ambos estructurados en etiquetas XML, y se los pasamos al payload en la variable `complete_prompt`. Ahora, el modelo va a recibir la siguiente información:
 
 ```
-Clasificación de la tarea: <clasifiación> Solicitud de generación de script </clasifiación>
+Clasificación de la tarea: <clasificación> Solicitud de generación de script </clasificación>
 
 Usuario: <prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </prompt_usuario>
 ```
@@ -107,12 +107,12 @@ Usuario: <prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </pro
 Con la clasificación de tareas, estamos haciendo que nuestra arquitectura rápida sea más modular, de modo que podamos beneficiarnos de la reutilización, la mantenibilidad, la extensibilidad y la personalización...
 
 ### main-3.py
-Ahora, implementamos la técnica "One-shot prompting" a nuestro chatbot. Depués de clasificar la tarea indicado por el prompt del usuario, pasamos un ejemplo relevante de una consulta parecida y una respuesta adecuada. Los ejemplos aclaran el nivel de detalle y también que queremos que la repuesta sea estructurada en subtareas, paso-por-paso. Al incluir un ejemplo relevante, se aumenta la probabilidad de que Claude genere una respuesta que cumpla con nuestras expectativas.
+Ahora, implementamos la técnica "One-shot prompting" a nuestro chatbot. Depués de clasificar la tarea indicado por el prompt del usuario, pasamos un ejemplo de una consulta parecida y una respuesta adecuada. Los ejemplos aclaran el nivel de detalle y también que queremos que la repuesta sea estructurada en subtareas, paso-por-paso. Al incluir un ejemplo relevante, se aumenta la probabilidad de que Claude genere una respuesta que cumpla con nuestras expectativas.
 
-El helper function ([`ejemplos_oneshot.py`](/utils/ejemplos_oneshot.py)) incluye un ejemplo de cada tipo de tarea que el modelo tendrá que manejar ("Pregunta relacionada con DevOps", "Solicitud de generación de script" o "Solución de problemas/errores"). Depués de clasificar la tarea, el script agrega el ejemplo correspondiente a la clasificación, y pasa todo junto con el prompt de usuario en `complete_prompt`:
+El helper function [`ejemplos_oneshot.py`](/utils/ejemplos_oneshot.py) incluye un ejemplo de cada tipo de tarea que el modelo tendrá que manejar ("Pregunta relacionada con DevOps", "Solicitud de generación de script", y "Solución de problemas/errores"). Depués de clasificar la tarea, el script agrega el ejemplo correspondiente a la clasificación, y pasa todo junto con el prompt de usuario en `complete_prompt`:
 
 ```
-Clasificación de la tarea: <clasifiación> Solicitud de generación de script </clasifiación>
+Clasificación de la tarea: <clasificación> Solicitud de generación de script </clasificación>
 
 Ejemplo de prompt y respuesta: 
 <ejemplo>
@@ -123,3 +123,22 @@ Ejemplo de prompt y respuesta:
 Usuario: <prompt_usuario> ¿Puedes ayudarme a generar un script Terraform? </prompt_usuario>
 
 ```
+
+:woman_technologist: :exclamation: **Ejecuta el script `main-2.py` con `python3 main-2.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+
+Ahora se nota que la respuesta ha mejorado bastante desde `main-0.py`. Sin embargo, nuestro prompt de usuario es demasiado vago! Vamos a aplicar nuestras técnicas de la ingeniería de prompt...
+
+### main-4.py
+En [`prompt_usuario.py`](/utils/prompt_usuario.py), hay un prompt de usuario que - con todas las etiquetas del mundo - explica la tarea, todos los detalles necesarios para realizar la tarea, y instrucciones al final para incluir el paso-a-paso. Le pasamos este prompt al parámetero `user_prompt`.
+
+Junto con el juego de papel, claridad, estructura, one-shot prompting, y otras mejores práticas que hemos implementado, deberíamos poder generar una respuesta bien refinada...
+
+:woman_technologist: :exclamation: **Ejecuta el script `main-2.py` con `python3 main-2.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
+
+Esta vez, vemos que el modelo nos que proporcionado un script de verdad, repleto de las configuraciones indicadas por el prompt del usuario, y explicado en detalle, paso-por-paso. Hasta indica pasos de troubleshooting!
+
+> [!TIP]
+> **Cambia el mensaje del usuario a otra tarea y vea cómo responde el modelo!**
+
+> [!WARNING]
+> **Es posible que tengas que incrementar el parámetro `max_tokens` para generar la respuesta completa de Anthropic.**

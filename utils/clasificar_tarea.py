@@ -18,10 +18,10 @@ def classify_task(query):
 # Clasificar la tarea como "question_answering", "script_generation", o "error_troubleshooting"
 def get_task_specific_prompt(task_type):
     if task_type == "question_answering":
-        return "<clasifiación> Pregunta relacionada con DevOps </clasifiación>"
+        return "<clasificación> Pregunta relacionada con DevOps </clasificación>"
     elif task_type == "script_generation":
-        return "<clasifiación> Solicitud de generación de script </clasifiación>"
+        return "<clasificación> Solicitud de generación de script </clasificación>"
     elif task_type == "error_troubleshooting":
-        return "<clasifiación> Solución de problemas/errores </clasifiación>"
+        return "<clasificación> Solución de problemas/errores </clasificación>"
     else:
         return ""
