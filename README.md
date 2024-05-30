@@ -136,6 +136,7 @@ Junto con el juego de papel, claridad, estructura, one-shot prompting, y otras m
 :woman_technologist: :exclamation: **Ejecuta el script `main-4.py` con `python3 main-4.py` o con el debugger Python del IDE** :exclamation: :woman_technologist:
 
 Esta vez, vemos que el modelo nos proporciona un script funcional, repleto de las configuraciones indicadas por el prompt del usuario, y explicado en detalle, paso-por-paso. Hasta indica pasos de troubleshooting!
+> Nota: Es posible que tengas que incrementar el parámetro max_tokens para generar la respuesta completa de Anthropic.
 
 > [!TIP]
 > **Cambia el mensaje del usuario a otra tarea y vea cómo responde el modelo!**
@@ -143,5 +144,3 @@ Esta vez, vemos que el modelo nos proporciona un script funcional, repleto de la
 
 ## Comentarios finales :thought_balloon:
 Gracias por leer y probar este repo. Espero que te haya ayudado. Si tienes algún pregunta o duda relacionada al proyecto, no dudas [reportar un Issue](https://github.com/shanjon/como-hablar-con-robots/issues).
-> [!WARNING]
-> Es posible que tengas que incrementar el parámetro `max_tokens` para generar la respuesta completa de Anthropic.
