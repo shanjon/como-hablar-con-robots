@@ -141,6 +141,7 @@ Esta vez, vemos que el modelo nos proporciona un script funcional, repleto de la
 > **Cambia el mensaje del usuario a otra tarea y vea cómo responde el modelo!**
 
 
-## Comentarios finales
+## Comentarios finales :thought_balloon:
 Gracias por leer y probar este repo. Espero que te haya ayudado. Si tienes algún pregunta o duda relacionada al proyecto, no dudas [reportar un Issue](https://github.com/shanjon/como-hablar-con-robots/issues).
+> [!WARNING]
 > Es posible que tengas que incrementar el parámetro `max_tokens` para generar la respuesta completa de Anthropic.
